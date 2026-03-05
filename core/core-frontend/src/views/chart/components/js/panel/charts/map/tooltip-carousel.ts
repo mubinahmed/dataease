@@ -14,6 +14,11 @@ export const configCarouselTooltip = (chart, view, data, scene, customSubArea?, 
         const existingItem = acc.find(obj => {
           if (drawOption?.areaId?.startsWith('custom_')) {
             return obj.areaName === current.areaName
+          } else if (
+            drawOption?.areaId?.startsWith('geo_') &&
+            !drawOption?.areaId?.startsWith('geo_156')
+          ) {
+            return obj.name === current.name
           } else {
             return obj.name === current.name || (obj.adcode && obj.adcode === current.adcode)
           }
